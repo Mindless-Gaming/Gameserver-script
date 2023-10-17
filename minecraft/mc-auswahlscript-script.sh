@@ -1,12 +1,6 @@
 #!/bin/bash
 
-echo "###################################################################"
-echo "#Script Name  	: MCServerInstaller                "                                                                          
-echo "#Description   	: A powerful bash script for easy installation of a Minecraft server (Vanilla, Forge, Spigot & Paper)   "                                                                                                                                                                
-echo "#Author       	: MindlessGamingDE       "                                       
-echo "#GitHub           : https://github.com/Mindless-Gaming "                                        
-echo "###################################################################"
-echo
+echo "############################-MineCraft-#########################"
 echo "1. Minecraft Forge"
 echo "2. Minecraft Paper (soon)"
 echo "3. Minecraft Bedrock (soon)"
