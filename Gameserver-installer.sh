@@ -15,7 +15,7 @@ if [ $choice == "1" ]
     then
     bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/minecraft/mc-auswahlscript-script.sh)
 fi
-if [ $choice == "1" ]
+if [ $choice == "2" ]
     then
     bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/satisfactory/installer.sh)
 fi
