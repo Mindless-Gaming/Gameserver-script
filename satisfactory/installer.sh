@@ -2,36 +2,54 @@
 
 echo "########################-Satisfactory-########################"
 
-#!/usr/bin/bash
-set -e
-sudo -v
+#Dual-Core CPU
+#6GB Ram
+#10GB Hard Disk Space (For the game)
 
-sudo groupadd steam
-sudo useradd -g steam -m steam -s /bin/bash
+#I chose 8GB, 25GB Disk Space
 
-sudo tee -a /etc/apt/sources.list > /dev/null <<EOT
-deb http://deb.debian.org/debian stretch main contrib non-free
-deb-src http://deb.debian.org/debian stretch main contrib non-free
+#Wiki:
+#https://satisfactory.fandom.com/wiki/Dedicated_servers
+#Firewall Rules:
+#https://tice.tips/gaming/satisfactory-server/
+#Linux Walkthrough:
+#https://0x2142.com/how-to-set-up-a-satisfactory-dedicated-game-server/
 
-deb http://deb.debian.org/debian stretch-updates main contrib non-free
-deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
 
-deb http://security.debian.org/ stretch/updates main contrib non-free
-deb-src http://security.debian.org/ stretch/updates main contrib non-free
-EOT
 
-sudo add-apt-repository multiverse
-sudo dpkg --add-architecture i386
-sudo apt update
-sudo apt install lib32gcc1 steamcmd
+## Get needed packages
+sudo -i -u root apt-get update
+sudo -i -u root apt-get install -y \
+  curl \
+  lib32gcc1 \
+  tmux  \
+  screen  \
+  wget \
+  unzip \
+  jq
 
-set -e
 
-sudo -v
+# Setup Satisfactory Directory
 
-sudo apt install libsdl2-2.0-0:i386
-sudo -H -u steam bash -c '/usr/games/steamcmd +login anonymous +force_install_dir ~/satisfactory +app_update 1690800 validate +quit'
+sudo -i -u root mkdir -p /opt/steam/logs
+sudo -i -u root mkdir -p /opt/steam/satisfactory
+## Add steam user
 
-sudo cp ./systemd/satisfactory.service /etc/systemd/system
-sudo systemctl enable satisfactory
-sudo systemctl start satisfactory
+sudo -i -u root useradd -d /opt/steam -s /bin/bash steam
+
+##
+sudo -i -u root chown -R steam:steam /opt/steam/
+
+
+## Download/Install Steam
+sudo -i -u steam curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" -o /opt/steam/steamcmd_linux.tar.gz 
+sudo -i -u steam tar -zxvf /opt/steam/steamcmd_linux.tar.gz --directory=/opt/steam/
+
+sudo -i -u steam /opt/steam/steamcmd.sh +force_install_dir /opt/steam/satisfactory/ +login anonymous +app_update 1690800 -beta public validate +quit
+## Create Linux Service
+sudo -i -u root wget https://raw.githubusercontent.com/dsctm3/Satisfactory-Script/main/satisfactory.service -O /etc/systemd/system/satisfactory.service
+sudo -i -u root systemctl enable satisfactory.service
+
+## Let folks now what's up?
+echo "Install completed - run the following to start server."
+echo "sudo -i -u root systemctl start satisfactory"
