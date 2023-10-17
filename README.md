@@ -9,7 +9,7 @@ falls du dennoch das Script einmal probieren möchtest führe folgenden Befehl a
 
 Minecraft:
 
-bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/minecraft/auswahlscript-script.sh
+bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/minecraft/auswahlscript-script.sh)
 
 
 
