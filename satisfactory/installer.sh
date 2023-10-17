@@ -1,19 +1,27 @@
 #!/bin/bash
 
-echo "########################-Satisfactory-########################"
+# Installiere SteamCMD
+echo "Installiere SteamCMD..."
+mkdir ~/steamcmd && cd ~/steamcmd
+wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+tar -xvzf steamcmd_linux.tar.gz
+rm steamcmd_linux.tar.gz
 
-echo " DIESES SCRIPT MUSS ALS ROOT AUSGEFÜHRT WERDEN!!!!!#"
-echo " dieses Script wird in 20 sekunden weiter ausgeführt"
+# Installiere den Satisfactory Dedicated Server
+echo "Installiere den Satisfactory Dedicated Server..."
+./steamcmd.sh +login anonymous +force_install_dir ~/satisfactory_server +app_update 1690800 validate +quit
 
-sleep 20
+# Konfiguriere den Server
+echo "Konfiguriere den Server..."
+cd ~/satisfactory_server/FactoryGame/Binaries/Linux/
+cp FactoryGame.sh FactoryGame.sh.bak # Backup der Originaldatei erstellen
 
-sudo dpkg --add-architecture i386
-sudo apt update
-sudo apt-get install steamcmd -y
-sudo ln -s /usr/games/steamcmd steamcmd
+# Bearbeite die Startparameter des Servers nach Bedarf (z.B. Anzahl der Spieler, Weltgröße usw.)
+sed -i 's/\<ServerName=.*$/ServerName=MeinServer/' FactoryGame.sh
+sed -i 's/\<MaxPlayers=.*$/MaxPlayers=16/' FactoryGame.sh
+sed -i 's/\<WorldSize=.*$/WorldSize=3/' FactoryGame.sh
 
-./steamcmd +force_install_dir /usr/games/satisfactory +login anonymous +app_update 1690800 validate +quit
-
-cd /usr/games/satisfactory
-
-./start_server.sh
+# Starte den Server
+echo "Starte den Satisfactory Dedicated Server..."
+cd ~/satisfactory_server/FactoryGame/Binaries/Linux/
+./FactoryGame.sh
