@@ -14,7 +14,7 @@ echo "4. Install MinecraftTheme"
 read -p "Please enter a number: " choice
 if [ $choice == "1" ]
     then
-    bash <(curl -s https://raw.githubusercontent.com/Sigma-Production/PteroFreeStuffinstaller/V1.10.1/resources/DarkNColor.sh)
+    bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/minecraft/Forge.sh)
 fi
 if [ $choice == "2" ]
     then
