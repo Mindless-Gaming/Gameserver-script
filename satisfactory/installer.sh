@@ -2,44 +2,36 @@
 
 echo "########################-Satisfactory-########################"
 
-declare install_dir=$(pwd)
-declare install_txt=$install_dir/install.txt
+#!/usr/bin/bash
+set -e
+sudo -v
 
-if [ -f $install_txt ]; then
-  echo "Server already installed or you need to clean the directory and start fresh\."
-  exit 6
-fi
+sudo groupadd steam
+sudo useradd -g steam -m steam -s /bin/bash
 
-function install_steamcmd () {
-  read -p "Do you want to install steamcmd in $install_dir?" -n 1 -r
-  echo
-  if [[ ! $REPLY =~ ^[Yy]$ ]]
-  then
-      echo "Installing steamcmd in $install_dir."
-      echo "curl -sqL 'https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz' | tar zxvf -"
-      echo "rm steamcmd_linux.tar.gz"
-      echo
+sudo tee -a /etc/apt/sources.list > /dev/null <<EOT
+deb http://deb.debian.org/debian stretch main contrib non-free
+deb-src http://deb.debian.org/debian stretch main contrib non-free
 
-      curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
-      chmod +x steamcmd.sh
-      rm steamcmd_linux.tar.gz
-  fi
-}
+deb http://deb.debian.org/debian stretch-updates main contrib non-free
+deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
 
-function install_satisfactory_server () {
-  read -p "Do you want to install the Satisfactory dedicated server in $install_dir?" -n 1 -r
-  echo
-  if [[ ! $REPLY =~ ^[Yy]$ ]]
-  then
-      echo "Installing Satisfactory dedicated server in $install_dir."
-      echo "./steamcmd.sh +login anonymous +force_install_dir $install_dir +app_update 1690800 validate +quit"
-      echo
+deb http://security.debian.org/ stretch/updates main contrib non-free
+deb-src http://security.debian.org/ stretch/updates main contrib non-free
+EOT
 
-      ./steamcmd.sh +login anonymous +force_install_dir $install_dir +app_update 1690800 validate +quit
-      echo "install=true" > install.txt
-  fi
-}
+sudo add-apt-repository multiverse
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install lib32gcc1 steamcmd
 
-install_steamcmd
-install_satisfactory_server
-exit
+set -e
+
+sudo -v
+
+sudo apt install libsdl2-2.0-0:i386
+sudo -H -u steam bash -c '/usr/games/steamcmd +login anonymous +force_install_dir ~/satisfactory +app_update 1690800 validate +quit'
+
+sudo cp ./systemd/satisfactory.service /etc/systemd/system
+sudo systemctl enable satisfactory
+sudo systemctl start satisfactory
