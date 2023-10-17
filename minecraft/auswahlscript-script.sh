@@ -8,9 +8,9 @@ echo "#GitHub           : https://github.com/Mindless-Gaming "
 echo "###################################################################"
 echo
 echo "1. Minecraft Forge"
-echo "2. Minecraft Paper"
-echo "3. Minecraft Bedrock"
-echo "4. Install MinecraftTheme"
+echo "2. Minecraft Paper (soon)"
+echo "3. Minecraft Bedrock (soon)"
+echo "4. idk (soon)"
 read -p "Please enter a number: " choice
 if [ $choice == "1" ]
     then
