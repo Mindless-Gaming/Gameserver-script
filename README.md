@@ -14,4 +14,4 @@ bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-scri
 
 
 
-#Wichtig führe den Command in einem Seperaten Directory aus. Die Server daten werden dort gespeichert, wo du diesen Befehl ausführst!!!
+#Wichtig führe den Command in einem Seperaten Directory aus. Die Server daten werden dort gespeichert, wo du das script ausführst!!!
