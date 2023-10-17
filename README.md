@@ -9,7 +9,7 @@ falls du dennoch das Script einmal probieren möchtest führe folgenden Befehl a
 
 Minecraft:
 
-bash <( bash -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/Gameserver-installer.sh)
+bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/Gameserver-installer.sh)
 
 
 
