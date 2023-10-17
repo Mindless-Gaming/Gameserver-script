@@ -6,7 +6,6 @@
 #Author       	: MindlessGamingDE                                              
 #GitHub         : https://github.com/Mindless-Gaming                                         
 ##################################################################
-print_brake 70
 echo
 echo "1. Minecraft Forge"
 echo "2. Minecraft Paper"
