@@ -1,8 +1,18 @@
 #!/bin/bash
 
-
 echo "Bitte warte bis das script vollständig ausgeführt wurde...."
 sleep 5
+
+echo "installiere Java...."
+sleep 1
+
+wget -N https://rose.dsh-mirror.de/Modmanager/jdk-17.0.1_linux-x64_bin.tar.gz
+tar -xf jdk-17.0.1_linux-x64_bin.tar.gz
+rm -R /usr/lib/jvm
+mkdir /usr/lib/jvm
+mv "jdk-17.0.1" /usr/lib/jvm/
+ln -s /usr/lib/jvm/jdk-17.0.1/ /usr/lib/jvm/java-16-oracle
+update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-17.0.1/bin/java" 1
 
 echo "mache ein Update der Ubuntu Respositories."
 sleep 2
