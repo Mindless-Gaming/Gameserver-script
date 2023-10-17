@@ -16,7 +16,7 @@ wget https://download1532.mediafire.com/dmm0ira2hyxgoyVNtG_j09QS2XmJL28OPFe9XQrI
 mkdir forgeserver
 cd forgeserver
 
-mv ForgesServer.tar.gz ./forgeserver
+mv ForgesServer.tar.gz ./forgeserver/ForgesServer.tar.gz
 
 echo "entpacke die Forge Server Daten"
 sleep 1
