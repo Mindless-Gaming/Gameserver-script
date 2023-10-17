@@ -1,8 +1,11 @@
 #!/bin/bash
 
-echo "This script will install Java17!"
 
+echo "Bitte warte bis das script vollständig ausgeführt wurde...."
 sleep 5
+
+echo "mache ein Update der Ubuntu Respositories."
+sleep 2
 
 sudo apt update
 sudo apt upgrade -y
