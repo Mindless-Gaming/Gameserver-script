@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "########################-Satisfactory-########################"
+
 declare install_dir=$(pwd)
 declare install_txt=$install_dir/install.txt
 
