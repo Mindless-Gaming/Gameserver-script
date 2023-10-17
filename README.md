@@ -8,4 +8,5 @@ Ein script, welches verschiedene Gameserver für dich installiert
 falls du dennoch das Script einmal probieren möchtest führe folgenden Befehl aus:
 
 Minecraft:
+
 bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/minecraft/auswahlscript-script.sh
