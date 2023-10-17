@@ -2,6 +2,11 @@
 
 echo "########################-Satisfactory-########################"
 
+echo " DIESES SCRIPT MUSS ALS ROOT AUSGEFÜHRT WERDEN!!!!!#"
+echo " dieses Script wird in 20 sekunden weiter ausgeführt"
+
+sleep 20
+
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt-get install steamcmd -y
