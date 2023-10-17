@@ -13,5 +13,9 @@ echo "2. Satisfactory Server erstellen"
 read -p "Please enter a number: " choice
 if [ $choice == "1" ]
     then
-    bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/minecraftscript.sh)
+    bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/minecraft/mc-auswahlscript-script.sh)
+fi
+if [ $choice == "1" ]
+    then
+    bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/satisfactory/installer.sh)
 fi
