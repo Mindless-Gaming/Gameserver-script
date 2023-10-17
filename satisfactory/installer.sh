@@ -2,54 +2,13 @@
 
 echo "########################-Satisfactory-########################"
 
-#Dual-Core CPU
-#6GB Ram
-#10GB Hard Disk Space (For the game)
+dpkg --add-architecture i386
+apt update
+apt-get install steamcmd -y
+ln -s /usr/games/steamcmd steamcmd
 
-#I chose 8GB, 25GB Disk Space
+./steamcmd +force_install_dir /usr/games/satisfactory +login anonymous +app_update 1690800 validate +quit
 
-#Wiki:
-#https://satisfactory.fandom.com/wiki/Dedicated_servers
-#Firewall Rules:
-#https://tice.tips/gaming/satisfactory-server/
-#Linux Walkthrough:
-#https://0x2142.com/how-to-set-up-a-satisfactory-dedicated-game-server/
+cd /usr/games/satisfactory
 
-
-
-## Get needed packages
-sudo -i -u root apt-get update
-sudo -i -u root apt-get install -y \
-  curl \
-  lib32gcc1 \
-  tmux  \
-  screen  \
-  wget \
-  unzip \
-  jq
-
-
-# Setup Satisfactory Directory
-
-sudo -i -u root mkdir -p /opt/steam/logs
-sudo -i -u root mkdir -p /opt/steam/satisfactory
-## Add steam user
-
-sudo -i -u root useradd -d /opt/steam -s /bin/bash steam
-
-##
-sudo -i -u root chown -R steam:steam /opt/steam/
-
-
-## Download/Install Steam
-sudo -i -u steam curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" -o /opt/steam/steamcmd_linux.tar.gz 
-sudo -i -u steam tar -zxvf /opt/steam/steamcmd_linux.tar.gz --directory=/opt/steam/
-
-sudo -i -u steam /opt/steam/steamcmd.sh +force_install_dir /opt/steam/satisfactory/ +login anonymous +app_update 1690800 -beta public validate +quit
-## Create Linux Service
-sudo -i -u root wget https://raw.githubusercontent.com/dsctm3/Satisfactory-Script/main/satisfactory.service -O /etc/systemd/system/satisfactory.service
-sudo -i -u root systemctl enable satisfactory.service
-
-## Let folks now what's up?
-echo "Install completed - run the following to start server."
-echo "sudo -i -u root systemctl start satisfactory"
+./start_server.sh
