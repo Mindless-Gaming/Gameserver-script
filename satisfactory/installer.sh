@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "#######################-Satisfactory-#########################"
+
 # Installiere SteamCMD
 echo "Installiere SteamCMD..."
 mkdir ~/steamcmd && cd ~/steamcmd
