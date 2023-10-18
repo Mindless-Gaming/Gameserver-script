@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Bitte warte bis das script vollständig ausgeführt wurde...."
-sleep 5
+sleep 3
 
 echo "installiere Java...."
 sleep 1
