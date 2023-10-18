@@ -3,8 +3,6 @@ Ein script, welches verschiedene Gameserver für dich installiert
 
 
 Ich habe leider nur wenig Zeit, weshalb dieses Projekt noch ein bisschen dauern wird!
-
-
 falls du dennoch das Script einmal probieren möchtest führe folgenden Befehl aus
 
 Minecraft:
