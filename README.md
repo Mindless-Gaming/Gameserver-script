@@ -5,10 +5,7 @@ Ein script, welches verschiedene Gameserver für dich installiert
 Ich habe leider nur wenig Zeit, weshalb dieses Projekt noch ein bisschen dauern wird!
 falls du dennoch das Script einmal probieren möchtest führe folgenden Befehl aus
 
-Minecraft:
+Wichtig!!! Führe das Script in einem Seperaten Directory aus. Die Server daten werden dort gespeichert, wo du das script ausführst!!! Bedenke auch, dass manche scripts docker/docker-compose benötigen! falls nicht installiert, führt, das script eine Installation aus. Diese installation wird aber nur von Ubuntu/Debian based systemen unterstützt, da das script mit apt und dpkg arbeitet.
+
 
 bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/Gameserver-installer.sh)
-
-
-
-# Wichtig!!!!!!!!!!! Führe das Script in einem Seperaten Directory aus. Die Server daten werden dort gespeichert, wo du das script ausführst!!!
