@@ -2,10 +2,10 @@
 
 echo "###################################################################"
 echo "#Script Name  	: Gameserver-installer"                                                                                          
-echo "#Description	  : A powerful bash script for easy installation of some Gameservers"                                                                                                                                                                   
+echo "#Description	    : A powerful bash script for easy installation of some Gameservers"                                                                                                                                                                   
 echo "#Author       	: MindlessGamingDE"                                              
-echo "#GitHub         : https://github.com/Mindless-Gaming"     
-echo "#Discord        : (soon)"
+echo "#GitHub           : https://github.com/Mindless-Gaming"     
+echo "#Discord          : (soon)"
 echo "###################################################################"
 
 echo "1. Minecraft Server erstellen"
