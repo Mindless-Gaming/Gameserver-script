@@ -9,5 +9,6 @@ Wichtig!!! Führe das Script in einem Seperaten Directory aus. Die Server daten 
 Wenn du ein anderes OS (z.B: Alpine) benutzt musst du docker/docker-compose manuell installieren!
 Bei den Gameserver wird meist noch etwas anderes mit installiert, was der Server noch benötigt. Für diese Fälle werde ich noch ein seperates Script erstellen. Dies wird wahrscheinlich aber nicht bei allem Helfen.
 
-Um zu starten führe diesen Befehl in deiner Bash-shell aus
+Um zu starten führe diesen Befehl in deiner Bash-shell aus:
+
 bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/Gameserver-installer.sh)
