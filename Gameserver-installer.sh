@@ -22,5 +22,5 @@ if [ $choice == "2" ]
 fi
 if [ $choice == "3" ]
     then
-    bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/satisfactory/installer.sh)
+    bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/code-server/installer.sh)
 fi
