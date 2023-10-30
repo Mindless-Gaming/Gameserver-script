@@ -11,5 +11,6 @@ Bei den Gameserver wird meist noch etwas anderes mit installiert, was der Server
 
 
 Um zu starten führe diesen Befehl in deiner Bash-shell aus:
-
+```
 bash <(curl -s https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/Gameserver-installer.sh)
+```
