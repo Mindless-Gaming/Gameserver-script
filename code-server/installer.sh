@@ -9,3 +9,5 @@ wget https://raw.githubusercontent.com/Mindless-Gaming/Gameserver-script/main/co
 
 echo "starte den code-server"
 docker-compose up -d
+
+echo "Der Code-Server ist unter https://<ip-adresse>:8449
